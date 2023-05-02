@@ -57,7 +57,7 @@ Table of Content:
 ========================================================================*/
 @import url('http://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap');
 @import url('http://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap');
-@import url('http://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap');
+@import url('http://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&amp;display=swap');
 @import url('http://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&amp;display=swap');
 @import url('http://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap');
 @import url('http://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300;400;500;700;800;900&amp;display=swap');
@@ -80,7 +80,7 @@ Table of Content:
 * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 *, ::before, ::after { box-sizing:border-box; -webkit-box-sizing:border-box; }
 html { overflow:hidden; overflow-y:auto; }
-body { font-size:13px; letter-spacing:0.02em; line-height:1.7; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family:'Poppins',Arial,Tahoma; color:#222222; font-weight:400; margin:0; padding:0; }
+body { font-size:13px; letter-spacing:0.02em; line-height:1.7; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family:'Montserrat',Arial,Tahoma, sans-serif; color:#222222; font-weight:400; margin:0; padding:0; }
 article, aside, details, figcaption, figure, footer, header, nav, section, summary { display: block; }
 audio, canvas, video { display: inline-block; }
 audio:not([controls]) { display:none; height:0; }
@@ -2081,7 +2081,7 @@ body.index-demo21 { background-color: #fafafa; line-height: 1.6; }
 .collection-hero__title { font-size:18px; font-weight:700; color:#111111; width:100%; text-align:center; text-transform:uppercase; margin:0; }
 .collection-description { padding-top:10px; padding-bottom:10px; }
 
-.collection-hero.large .collection-hero__image { height: 280px; }
+.collection-hero.large .collection-hero__image { height: 100px; }
 .collection-hero.medium .collection-hero__image { height: 200px; }
 .collection-hero .collection-hero__title.medium { font-size: 18px; }
 
@@ -3105,7 +3105,7 @@ ul.checkmarkList li:before { content:"\e954";font-family:'annimex-icons'; positi
 /*======================================================================
   17. Shop Pages
 ========================================================================*/
-.shop-listview-drawer .collection-hero__image, .shop-sub-collections .collection-hero__image, .shop-top-filter .collection-hero__image { background-image:url(../images/collection-banner/clothing-banner.jpg); }
+
 .shop-no-sidebar .collection-hero__image { background-image:url(../images/collection-banner/fashion-collection.jpg); }
 .shop-right-sidebar .collection-hero__image { background-image:url(../images/collection-banner/collection-banner.jpg); }
 
@@ -3795,3 +3795,4 @@ ul.checkmarkList li:before { content:"\e954";font-family:'annimex-icons'; positi
 #elements-icons .glyph-icon:hover { color: #fe877b; }
 #elements-icons .iconList .glyph:hover .an { color: #fe877b; -webkit-animation: pulse 1s infinite ease-in-out alternate; animation: pulse 1s infinite ease-in-out alternate; }
 
+.tabs-listing

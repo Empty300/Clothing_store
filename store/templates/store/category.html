@@ -1,0 +1,55 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+    <!--Body Container-->
+    <div id="page-content">
+        <!--Collection Banner-->
+        <div class="collection-header">
+            <div class="collection-hero">
+                <div class="collection-hero__image"></div>
+                <div class="collection-hero__title-wrapper container">
+                    <h1 class="collection-hero__title">Категории</h1>
+                    <div class="breadcrumbs text-uppercase mt-1 mt-lg-2"><a
+                            href=""
+                            title="Back to the home page">На главную</a>
+                </div>
+            </div>
+        </div>
+        <!--End Collection Banner-->
+
+        <!--Category Grid-->
+        <div class="container">
+            <!--Category Masonary Grid-->
+            <div class="grid-categorys grid-mr-20">
+                <div class="grid-masonary category-page-grid style1">
+                    <div class="grid-sizer col-6 col-sm-6 col-md-6 col-lg-6"></div>
+                    <div class="row mx-0">
+                        {% for category in object_list %}
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 category-grid-item cl-item">
+                            <div class="category-item position-relative overflow-hidden zoomscal-hov">
+                                <a href="{% url 'store:categories' category.id %}"
+                                   class="category-link">
+                                    <div class="zoom-scal"><img class="blur-up lazyload"
+                                                                data-src={{ category.image.url }}
+                                                                src={{ category.image }} alt="collection"
+                                                                title=""/></div>
+                                    <div class="details">
+                                        <div class="inner">
+                                            <h3 class="category-title">{{ category.name }}</h3>
+                                            <span class="counts mt-0 mt-md-1">20 Товаров</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <!--End Category Masonary Grid-->
+        </div>
+        <!--End Category Grid-->
+
+{% endblock %}
