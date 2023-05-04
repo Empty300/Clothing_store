@@ -73,7 +73,9 @@ Table of Content:
 @import url('http://fonts.googleapis.com/css2?family=Alata&amp;display=swap');
 @import url('http://fonts.googleapis.com/css2?family=Merienda:wght@400;700&amp;display=swap');
 
-
+.errors1 {
+    border: 1px;
+}
 /*======================================================================
   2. Basic Styles
 ========================================================================*/
@@ -3748,6 +3750,7 @@ ul.checkmarkList li:before { content:"\e954";font-family:'annimex-icons'; positi
 
 /*======================================================================
   25. Vendor Page
+
 ========================================================================*/
 .vendor-profile-page .tabs-style2.tabs > li { padding: 0 0 10px; }
 .vendor-profile-page .tabs-style2.tabs > li:after { bottom: -1px; }

@@ -1,0 +1,74 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+
+            <!--Body Container-->
+            <div id="page-content">   
+                <!--Collection Banner-->
+                <div class="collection-header">
+                    <div class="collection-hero">
+                        <div class="collection-hero__image"></div>
+                        <div class="collection-hero__title-wrapper container">
+                            <h1 class="collection-hero__title">Авторизация</h1>
+                            <div class="breadcrumbs text-uppercase mt-1 mt-lg-2"><a href="{% url 'store:index_page' %}" title="Back to the home page">На главную</a><span>|</span><span class="fw-bold">Войти</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Collection Banner-->
+
+                <!--Container-->
+                <div class="container">
+                    <!--Main Content-->
+                    <div class="login-register pt-2 pt-lg-5">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4 mb-md-0">
+                                <div class="inner">
+                                    <form method="post" action="{% url 'users:login' %}" class="customer-form">
+                                        <h3 class="h4 text-uppercase">Авторизация по логину </h3>
+                                        {% if messages or form.non_field_errors %}
+                                            <div id="errors">
+                                                <div class="errors1">
+                                                    {% if messages %}
+                                                        {% for message in messages %}
+                                                            {{ message }}
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                    {{ form.non_field_errors }}
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <p>Если у вас есть учетная запись, пожалуйста, войдите.</p>
+                                        <div class="row">
+
+                                            {% csrf_token %}
+                                            {{ form.username }}
+                                            {{ form.password }}
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="text-left col-12 col-sm-12 col-md-12 col-lg-12">
+                                                <p class="d-flex-center">
+                                                    <input type="submit" class="btn rounded me-auto" value="Войти">
+                                                    <a href="https://template.annimexweb.com/optimal/forgot-password.html">Забыли пароль?</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="inner">
+                                    <h3 class="h4 text-uppercase">Новый покупатель?</h3>
+                                    <p>Регистрация на этом сайте позволит вам получить доступ к статусу ваших заказов. У вас будет запрошена информация необходимая для того, чтобы сделать процесс покупки быстрее и проще.</p>
+                                    <a href="https://template.annimexweb.com/optimal/register.html" class="btn rounded">Создать аккаунт</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Main Content-->
+                </div>
+                <!--End Container-->
+            </div>
+            <!--End Body Container-->
+{% endblock %}
