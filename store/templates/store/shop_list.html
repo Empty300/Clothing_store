@@ -35,9 +35,9 @@
                                                     <!-- image -->
                                                     <img class="primary blur-up lazyload" data-src={{ product.image1.url }} src={{ product.image1.url }} alt="image" title="">
                                                     <!-- End image -->
-                                                    <!-- Hover image -->
+                                                    {% if product.image2 %}
                                                     <img class="hover blur-up lazyload" data-src={{ product.image2.url }} src={{ product.image2.url }} alt="image" title="">
-                                                    <!-- End hover image -->
+                                                    {% endif %}
                                                 </a>
                                                 <!--End Product Image-->
 
@@ -46,13 +46,7 @@
                                                 <!--End Countdown Timer-->
 
                                                 <!--Product Button-->
-                                                <div class="button-set style0 d-none d-md-block">
-                                                    <ul>
-                                                        <!--Cart Button-->
-                                                        <li><a class="btn-icon btn cartIcon pro-addtocart-popup" href="#pro-addtocart-popup"><i class="icon an an-cart-l"></i> <span class="tooltip-label top">Добавить в корзину</span></a></li>
-                                                        <!--End Cart Button-->
-                                                    </ul>
-                                                </div>
+
                                                 <!--End Product Button-->  
                                             </div>
                                             <!--End Product Image-->

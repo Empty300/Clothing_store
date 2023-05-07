@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'main',
     'store',
     'users',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'django.template.context_processors.request',
+                'store.context_processors.baskets',
             ],
         },
     },
