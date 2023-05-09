@@ -114,12 +114,12 @@ class Basket(models.Model):
 
 
     def de_json(self):
-        price = self.product.price
         basket_item = {
-        'product_name': self.product.name,
-        'quantity': self.quantity,
-        'price': float(price),
-        'sum': float(self.sum()),
+        'Имя товара': self.product.name,
+        'id товара': self.product.id,
+        'размер': self.size,
+        'Количество': self.quantity,
+        'Сумма за этот товар': float(self.sum()),
     }
         return basket_item
 

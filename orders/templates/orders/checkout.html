@@ -1,130 +1,156 @@
 {% extends 'store/base.html' %}
 {% load static %}
 {% block content %}
-            <!--Body Container-->
-            <div id="page-content">
-                <!--Collection Banner-->
-                <div class="collection-header">
-                    <div class="collection-hero">
-                        <div class="collection-hero__image"></div>
-                        <div class="collection-hero__title-wrapper container">
-                            <h1 class="collection-hero__title">Checkout Style2</h1>
-                            <div class="breadcrumbs text-uppercase mt-1 mt-lg-2"><a href="https://template.annimexweb.com/optimal/index.html" title="Back to the home page">Home</a><span>|</span><span class="fw-bold">Checkout Style2</span></div>
-                        </div>
-                    </div>
+    <!--Body Container-->
+    <div id="page-content">
+        <!--Collection Banner-->
+        <div class="collection-header">
+            <div class="collection-hero">
+                <div class="collection-hero__image"></div>
+                <div class="collection-hero__title-wrapper container">
+                    <h1 class="collection-hero__title">Оформление заказа</h1>
+                    <div class="breadcrumbs text-uppercase mt-1 mt-lg-2"><a href="{% url 'store:index_page' %}"
+                                                                            title="Back to the home page">На главную</a><span>|</span><span
+                            class="fw-bold">Оформление заказа</span></div>
                 </div>
-                <!--End Collection Banner-->
-
-                <!--Main Content-->
-                <div class="container">
-                    <div class="row billing-fields">
-                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3 mb-lg-0">
-                            <div class="create-ac-content">
-                                <form action="{% url 'orders:order_create' %}" method="POST">
-                                    {% csrf_token %}
-
-                                        <h2 class="login-title mb-3">Адрес доставки</h2>
-                                        <div class="row">
-                                            <div class="form-group col-md-6 col-lg-6">
-                                                <label for="input-firstname">Ваше имя <span class="required-f">*</span></label>
-                                                {{ form.first_name }}
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6">
-                                                <label for="input-lastname">Ваша фамилия <span class="required-f">*</span></label>
-                                                {{ form.last_name }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6 col-lg-6">
-                                                <label for="input-telephone">Номер телефона <span class="required-f">*</span></label>
-                                                {{ form.telephone }}
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6">
-                                                <label for="input-city">Город <span class="required-f">*</span></label>
-                                                {{ form.city }}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-
-                                            <div class="form-group col-md-6 col-lg-6">
-                                                <label for="input-address-1">Адрес <span class="required-f">*</span></label>
-                                                {{ form.address }}
-                                            </div>
-                                            <div class="form-group col-md-6 col-lg-6">
-                                                <label for="input-postcode">Почтовый индекс <span class="required-f">*</span></label>
-                                                {{ form.zipcode }}
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="form-group col-md-12 col-lg-12 col-xl-12 mb-0">
-                                                <label for="input-company">Комментарии к заказу <span class="required-f"></span></label>
-                                                {{ form.order_notes }}
-                                            </div>
-                                        </div>
-
-                                        <div class="order-button-payment mt-3 clearfix">
-
-                                            <input type="submit" class="fs-6 btn btn-lg rounded w-100 fw-600 text-white" value="Заказать">
-                                        </div>
-                            </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                            <div class="your-order-payment">
-                                <div class="your-order">
-                                    <h2 class="order-title mb-3">Ваш заказ</h2>
-                                    <div class="table-responsive order-table style2"> 
-                                        <table class="bg-white table table-bordered align-middle table-hover text-center mb-1">
-
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-start">Товар</th>
-                                                    <th>Цена</th>
-                                                    <th>Размер</th>
-                                                    <th>Количество</th>
-                                                    <th>Промежуточный итог</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for basket in baskets %}
-                                                <tr>
-                                                    <td class="text-start">
-                                                        <a href="{% url 'store:product' basket.product.slug %}">{{ basket.product.name }}</a>
-                                                    </td>
-                                                    <td>{{ basket.product.price}} руб.</td>
-                                                    <td>{{ basket.size }}</td>
-                                                    <td>{{ basket.quantity }}</td>
-                                                    <td>{{ basket.sum }} руб.</td>
-                                                </tr>
-                                            {% endfor %}
-                                            </tbody>
-                                            <tfoot class="font-weight-600">
-                                                <tr>
-                                                    <td colspan="4" class="text-end fw-bolder">Доставка </td>
-                                                    <td class="fw-bolder">100 руб.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="4" class="text-end fw-bolder">Всего</td>
-                                                    <td class="fw-bolder">{{ baskets.total_sum_with_delivery }} руб.</td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <hr>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Main Content-->
             </div>
-            <!--End Body Container-->
+        </div>
+        <!--End Collection Banner-->
+
+        <!--Main Content-->
+        <div class="container">
+            <div class="row billing-fields">
+                <div class="col-lg-6 col-md-12 col-sm-12 mb-3 mb-lg-0">
+                    <div class="create-ac-content">
+                        <form action="{% url 'orders:order_create' %}" method="POST">
+                            {% csrf_token %}
+
+                            <h2 class="login-title mb-3">Адрес доставки</h2>
+                            <div class="row">
+                                {% if messages or form.non_field_errors %}
+                                    <div id="errors">
+                                        <div class="errors1">
+                                            {% if messages %}
+                                                {% for message in messages %}
+                                                    {{ message }}
+                                                {% endfor %}
+                                            {% endif %}
+                                            {{ form.non_field_errors }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                {% for field in form %}
+                                    {{ field.errors }}
+                                {% endfor %}
+                                <div class="form-group col-md-6 col-lg-6">
+                                    <label for="input-firstname">Ваше имя <span class="required-f">*</span></label>
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="form-group col-md-6 col-lg-6">
+                                    <label for="input-lastname">Ваша фамилия <span class="required-f">*</span></label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 col-lg-6">
+                                    <label for="input-telephone">Ваше отчество <span class="required-f">*</span></label>
+                                    {{ form.surname }}
+                                </div>
+                                <div class="form-group col-md-6 col-lg-6">
+                                    <label for="input-telephone">Номер телефона <span
+                                            class="required-f">*</span></label>
+                                    {{ form.telephone }}
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 col-lg-6">
+                                    <label for="input-city">Город <span class="required-f">*</span></label>
+                                    {{ form.city }}
+                                </div>
+                                <div class="form-group col-md-6 col-lg-6">
+                                    <label for="input-postcode">Почтовый индекс <span
+                                            class="required-f">*</span></label>
+                                    {{ form.zipcode }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12 col-lg-12">
+                                    <label for="input-address-1">Адрес <span class="required-f">*</span></label>
+                                    {{ form.address }}
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="form-group col-md-12 col-lg-12 col-xl-12 mb-0">
+                                    <label for="input-company">Комментарии к заказу <span
+                                            class="required-f"></span></label>
+                                    {{ form.order_notes }}
+                                </div>
+                            </div>
+
+                            <div class="order-button-payment mt-3 clearfix">
+
+                                <input type="submit" class="fs-6 btn btn-lg rounded w-100 fw-600 text-white"
+                                       value="Заказать">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="your-order-payment">
+                        <div class="your-order">
+                            <h2 class="order-title mb-3">Ваш заказ</h2>
+                            <div class="table-responsive order-table style2">
+                                <table class="bg-white table table-bordered align-middle table-hover text-center mb-1">
+
+                                    <thead>
+                                    <tr>
+                                        <th class="text-start">Товар</th>
+                                        <th>Цена</th>
+                                        <th>Размер</th>
+                                        <th>Количество</th>
+                                        <th>Промежуточный итог</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for basket in baskets %}
+                                        <tr>
+                                            <td class="text-start">
+                                                <a href="{% url 'store:product' basket.product.slug %}">{{ basket.product.name }}</a>
+                                            </td>
+                                            <td>{{ basket.product.price }} руб.</td>
+                                            <td>{{ basket.size }}</td>
+                                            <td>{{ basket.quantity }}</td>
+                                            <td>{{ basket.sum }} руб.</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    <tfoot class="font-weight-600">
+                                    <tr>
+                                        <td colspan="4" class="text-end fw-bolder">Доставка</td>
+                                        <td class="fw-bolder">100 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-end fw-bolder">Всего</td>
+                                        <td class="fw-bolder">{{ baskets.total_sum_with_delivery }} руб.</td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+
+                        <hr>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--End Main Content-->
+    </div>
+    <!--End Body Container-->
 {% endblock %}
