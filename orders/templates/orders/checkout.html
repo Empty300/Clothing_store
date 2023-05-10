@@ -42,38 +42,25 @@
                                 {% for field in form %}
                                     {{ field.errors }}
                                 {% endfor %}
-                                <div class="form-group col-md-6 col-lg-6">
-                                    <label for="input-firstname">Ваше имя <span class="required-f">*</span></label>
-                                    {{ form.first_name }}
-                                </div>
-                                <div class="form-group col-md-6 col-lg-6">
-                                    <label for="input-lastname">Ваша фамилия <span class="required-f">*</span></label>
-                                    {{ form.last_name }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6 col-lg-6">
-                                    <label for="input-telephone">Ваше отчество <span class="required-f">*</span></label>
-                                    {{ form.surname }}
-                                </div>
-                                <div class="form-group col-md-6 col-lg-6">
-                                    <label for="input-telephone">Номер телефона <span
-                                            class="required-f">*</span></label>
-                                    {{ form.telephone }}
+                                <div class="form-group col-md-12 col-lg-12">
+                                    <label for="input-firstname">Ваше ФИО <span class="required-f">*</span></label>
+                                    {{ form.fio }}
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 col-lg-6">
+                                    <label for="input-telephone">Номер телефона <span
+                                            class="required-f">*</span></label>
+                                    {{ form.telephone }}
+                                </div>
+                                <div class="form-group col-md-6 col-lg-6">
                                     <label for="input-city">Город <span class="required-f">*</span></label>
                                     {{ form.city }}
                                 </div>
-                                <div class="form-group col-md-6 col-lg-6">
-                                    <label for="input-postcode">Почтовый индекс <span
-                                            class="required-f">*</span></label>
-                                    {{ form.zipcode }}
-                                </div>
+
                             </div>
+
                             <div class="row">
                                 <div class="form-group col-md-12 col-lg-12">
                                     <label for="input-address-1">Адрес <span class="required-f">*</span></label>

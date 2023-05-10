@@ -1,4 +1,5 @@
 from django import forms
+from django.core.validators import RegexValidator
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import RegionalPhoneNumberWidget
 
@@ -6,24 +7,19 @@ from orders.models import Order
 
 
 class OrderForm(forms.ModelForm):
-    first_name = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': "Иван"}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': "Иванов"}))
-    surname = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': "Иванович"}))
+    fio = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': "Иванов Иван Иванович"}))
     address = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': "ул. Мира, дом 6, кв. 45"}))
     city = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': "Иркутск"}))
-    zipcode = forms.IntegerField(widget=forms.NumberInput(attrs={
-        'placeholder': "664000"}))
-    telephone = PhoneNumberField(region="RU", widget=RegionalPhoneNumberWidget(attrs={
-        'placeholder': "+79248347257"}))
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{11}$")
+    telephone = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': "+79248347257"}),
+        validators=[phoneNumberRegex], max_length=16)
     order_notes = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}), required=False)
     basket_history = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}), required=False)
 
     class Meta:
         model = Order
-        fields = ('first_name', 'last_name', 'surname', 'address', 'city', 'zipcode',
-                  'telephone', 'order_notes', 'basket_history')
+        fields = ('fio', 'address', 'city', 'telephone', 'order_notes', 'basket_history')
