@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django import forms
+from django.forms import ModelForm
 
 from users.models import User
 
@@ -62,3 +63,12 @@ class UserProfileForm(UserChangeForm):
                                                                'placeholder': "Почтовый код"}), required=False)
     telephone = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-group',
                                                               'placeholder': "Телефон"}), required=False)
+
+class UserResetPassForm(ModelForm):
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
+        'class': 'form-group',
+        'placeholder': "Email"}))
+
+    class Meta:
+        model = User
+        fields = ('email',)

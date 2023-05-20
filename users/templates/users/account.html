@@ -108,47 +108,27 @@
                                         <table class="table table-bordered table-hover align-middle text-center mb-0">
                                             <thead class="alt-font">
                                                 <tr>
-                                                    <th>Order</th>
-                                                    <th>Product</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Total</th>
-                                                    <th>Actions</th>
+                                                    <th>Заказ №</th>
+                                                    <th>Товар</th>
+                                                    <th>Дата</th>
+                                                    <th>Статус</th>
+                                                    <th>Цена</th>
+
                                                 </tr>
                                             </thead>
+
                                             <tbody>
+                                                {% for order in orders %}
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Long Sleeve T-shirts</td>
-                                                    <td>March 04, 2021</td>
-                                                    <td class="text-success">Completed</td>
-                                                    <td>$165.00 for 1 item </td>
-                                                    <td><a class="link-underline view" href="https://template.annimexweb.com/optimal/cart-style1.html">View</a></td>
+                                                    <td>{{ order.id }}</td>
+                                                    <td>{{ order.tovar }}</td>
+                                                    <td>{{ order.created }}</td>
+                                                    <td class="text-success">{{ order.get_status_display }}</td>
+                                                    <td>{{ order.total_price }} Руб. </td>
+
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Floral Crop Top</td>
-                                                    <td>May 19, 2021</td>
-                                                    <td class="text-success">Completed</td>
-                                                    <td>$150.00 for 1 item </td>
-                                                    <td><a class="link-underline view" href="https://template.annimexweb.com/optimal/cart-style1.html">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Bodysuit Black</td>
-                                                    <td>June 24, 2021</td>
-                                                    <td class="text-danger">Processing</td>
-                                                    <td>$190.00 for 2 item </td>
-                                                    <td><a class="link-underline view" href="https://template.annimexweb.com/optimal/cart-style1.html">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Hoodie Sweatshirt</td>
-                                                    <td>July 28, 2021</td>
-                                                    <td class="text-danger">Processing</td>
-                                                    <td>$170.00 for 1 item </td>
-                                                    <td><a class="link-underline view" href="https://template.annimexweb.com/optimal/cart-style1.html">View</a></td>
-                                                </tr>
+                                                {% endfor %}
+
                                             </tbody>
                                         </table>
                                     </div>

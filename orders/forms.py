@@ -1,7 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
-from phonenumber_field.formfields import PhoneNumberField
-from phonenumber_field.widgets import RegionalPhoneNumberWidget
+
 
 from orders.models import Order
 

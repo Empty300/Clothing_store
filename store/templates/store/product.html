@@ -1,7 +1,10 @@
 {% extends 'store/base.html' %}
 {% load static %}
 {% block content %}
-            <!--Body Container-->
+            {% if product.category.name == 'Black' %}
+                <link rel="stylesheet" href="{% static 'css/style_black.css' %}">
+            {% endif %}
+
             <div id="page-content">   
                 <!--Breadcrumbs-->
                 <div class="breadcrumbs-wrapper text-uppercase">
@@ -126,8 +129,12 @@
                                                     <label class="swatchLbl rounded medium" title="XL">XL</label><span class="tooltip-label">XL</span>
                                                 </li>
                                                 {% endif %}
+                                                {% if product.category.name == 'Black' %}
 
+                                            <li class="ms-1"><a href="#sizechart" class="sizelink link-underline text-uppercase"><i class="icon an an-ruler d-none"></i> <font color="white">Таблица размеров</font></a></li>
+                                                    {% else %}
                                                 <li class="ms-1"><a href="#sizechart" class="sizelink link-underline text-uppercase"><i class="icon an an-ruler d-none"></i> Таблица размеров</a></li>
+                                            {% endif %}
                                             </ul>
                                         </div>
                                     </div>

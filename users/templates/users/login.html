@@ -50,7 +50,7 @@
                                             <div class="text-left col-12 col-sm-12 col-md-12 col-lg-12">
                                                 <p class="d-flex-center">
                                                     <input type="submit" class="btn rounded me-auto" value="Войти">
-                                                    <a href="https://template.annimexweb.com/optimal/forgot-password.html">Забыли пароль?</a>
+                                                    <a href="{% url 'users:password_reset' %}">Забыли пароль?</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                 <div class="inner">
                                     <h3 class="h4 text-uppercase">Новый покупатель?</h3>
                                     <p>Регистрация на этом сайте позволит вам получить доступ к статусу ваших заказов. У вас будет запрошена информация необходимая для того, чтобы сделать процесс покупки быстрее и проще.</p>
-                                    <a href="https://template.annimexweb.com/optimal/register.html" class="btn rounded">Создать аккаунт</a>
+                                    <a href="{% url 'users:registration' %}" class="btn rounded">Создать аккаунт</a>
                                 </div>
                             </div>
                         </div>

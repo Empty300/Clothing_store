@@ -1,9 +1,11 @@
 {% extends 'store/base.html' %}
 {% load static %}
 {% block content %}
-
+            {% if category_name.name == 'Black' %}
+                <link rel="stylesheet" href="{% static 'css/style_black.css' %}"/>
+            {% endif %}
             <!--Body Container-->
-            <div id="page-content">  
+            <div id="page-content">
                 <!-- Collection Banner -->
                 <div class="collection-header">
                     <div class="collection-hero large">
@@ -54,7 +56,12 @@
                                             <div class="product-details text-center">
                                                 <!--Product Name-->
                                                 <div class="product-name text-uppercase">
-                                                    <a href="{% url 'store:product' product.slug %}">{{ product.name }}</a>
+                                                    {% if category_name.name == 'Black' %}
+                                                        <a href="{% url 'store:product' product.slug %}"><font color="white">{{ product.name }}</font></a>
+                                                    {% else %}
+                                                        <a href="{% url 'store:product' product.slug %}">{{ product.name }}</a>
+                                                    {% endif %}
+
                                                 </div>
                                                 <!--End Product Name-->
                                                 <!--Product Price-->

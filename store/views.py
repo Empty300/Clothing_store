@@ -37,6 +37,8 @@ class ProductDetailView(DetailView):
     template_name = 'store/product.html'
     model = Product
 
+
+
 @login_required
 def basket_add(request, product_id):
     product = Product.objects.get(id=product_id)
