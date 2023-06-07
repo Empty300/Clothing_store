@@ -125,7 +125,6 @@ def get_cdek_info(city_name):
     response = response.json()
     try:
         response = response['tariff_codes'][0]
-        print(response)
         delivery_info = {
             'price': response['delivery_sum'],
             'period_min': int(response['period_min']),
@@ -142,5 +141,4 @@ def _get_city_id(city_name, params_for_auth):
                              headers={
                                  'Authorization': f'{params_for_auth["token_type"]} {params_for_auth["access_token"]}'})
     city_info = city_info.json()
-    print(city_info)
     return city_info[0]['code']
