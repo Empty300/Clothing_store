@@ -1,7 +1,5 @@
-
 from django.db import models
 
-from main import settings
 from users.models import User
 
 
@@ -16,6 +14,16 @@ class ProductCategory(models.Model):
     class Meta:
         verbose_name_plural = "Категории товаров"
 
+class Collections(models.Model):
+    name = models.CharField(max_length=128, unique=True, verbose_name='Название коллекции')
+    description = models.TextField(null=True, blank=True, verbose_name='Описание (не обязательно)')
+    image = models.ImageField(upload_to='collections_images', verbose_name='Фото')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Коллекции"
 
 class Product(models.Model):
     name = models.CharField(
@@ -68,7 +76,13 @@ class Product(models.Model):
         blank=True,
         null=True,
     )
-
+    collection = models.ForeignKey(
+        to=Collections,
+        on_delete=models.CASCADE,
+        verbose_name="Коллекция",
+        blank=True,
+        null=True,
+    )
 
     class Meta:
         verbose_name_plural = "Товары"
@@ -82,11 +96,10 @@ class BasketQuerySet(models.QuerySet):
         return sum(basket.sum() for basket in self)
 
     def total_sum_with_delivery(self):
-        return sum(basket.sum() for basket in self)+100
+        return sum(basket.sum() for basket in self) + 100
 
     def total_quantity(self):
         return sum(basket.quantity for basket in self)
-
 
 
 class Basket(models.Model):
@@ -103,16 +116,17 @@ class Basket(models.Model):
     def sum(self):
         return self.product.price * self.quantity
 
-
     def de_json(self):
         basket_item = {
-        'Имя товара': self.product.name,
-        'id товара': self.product.id,
-        'размер': self.size,
-        'Количество': self.quantity,
-        'Сумма за этот товар': float(self.sum()),
-    }
+            'Имя товара': self.product.name,
+            'id товара': self.product.id,
+            'размер': self.size,
+            'Количество': self.quantity,
+            'Сумма за этот товар': float(self.sum()),
+        }
         return basket_item
 
     class Meta:
         verbose_name_plural = "Корзины"
+
+

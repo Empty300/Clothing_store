@@ -1,0 +1,173 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!--Required Meta Tags-->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <!-- Title Of Site -->
+        <title>Заказ создан</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+        <style>
+            *, ::before, ::after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+            a:hover { opacity:0.88; }
+        </style>
+        <style>
+    .table-wrapper {
+        overflow-x: auto;
+        width: 100%;
+        margin-bottom: 20px;
+        white-space: nowrap;
+    }
+</style>
+        <style>
+        @media only screen and (max-width: 870px) {
+            .contenttable {
+                width: 100% !important;
+            }
+
+            .headerimage {
+                width: 100% !important;
+            }
+
+            .content {
+                width: 100% !important;
+            }
+
+            .contenttable {
+                width: 100% !important;
+            }
+        }
+    </style>
+    <style type="text/css">
+        @media only screen and (max-device-width: 870px) {
+            table[class=contenttable] {
+                width: 100% !important;
+            }
+
+            img[class="headerimage"] {
+                width: 100% !important;
+            }
+
+            td[class="contetnt"] {
+                width: 20px !important;
+            }
+
+            table[class=contenttable] {
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+    <body style="padding:0;margin:0;background-color:#f7f7f7;">
+        <table style="border-spacing:0; border-collapse:collapse; background-color:#f7f7f7; width:100%; margin:0 auto; padding:0;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7;">
+            <tbody>
+                <tr>
+                    <td align="center" style="padding:25px 0;" class=contenttable>
+                        <table class=contenttable style=" border-spacing:0; border-collapse:collapse; background-color:#fff; border-radius:10px; min-width: 320px; max-width:600px; margin:0 auto; box-shadow:0px 0px 14px -4px rgba(0,0,0,0.2);" width="650" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7; ">
+                            <tbody>
+
+                                <tr>
+                                    <td align="center" style="padding:25px 25px;">
+                                        <table class=contenttable width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" style="padding:0;">
+                                                        <h1 style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:22px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; margin:15px 0 10px; text-transform:none;"><strong>Ваш заказ создан!</strong></h1>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" style="padding:0;">
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; margin:0 0 0;">В ближайшее время он будет отправлен</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" style=" padding:0;">
+                                         <div class="table-wrapper">
+                                        <table class=contenttable width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#fff; padding:0 25px 25px 25px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" style="background-color:#fbfbfb; border:0px solid #e8e8e8; padding:15px;width:50%;vertical-align:top;">
+                                                        <h3 style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:15px; font-weight:normal; letter-spacing:0.5px; line-height:1.2; text-align:left; margin:0 0 10px; padding:0 0 10px; border-bottom:1px solid #e6e8eb;"><strong>Информация о заказе</strong></h3>
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:left; margin:0 0 2px;"><strong>Номер заказа:</strong>
+                                                            {{ order.id }}</p>
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:left; margin:0 0 2px;"><strong>Дата заказа:</strong> {{ order.created }}</p>
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:left; margin:0 0 0;"><strong>Цена заказа:</strong> {{ full_price }} Руб.</p>
+                                                    </td>
+                                                    <td style="padding:0 10px;"></td>
+                                                    <td align="left" style="background-color:#fbfbfb; border:0px solid #e8e8e8; padding:15px; width:50%;vertical-align:top;">
+                                                        <h3 style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:15px; font-weight:normal; letter-spacing:0.5px; line-height:1.2; text-align:left; margin:0 0 10px; padding:0 0 10px; border-bottom:1px solid #e6e8eb;"><strong>Адрес доставки</strong></h3>
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:left; margin:0 0 0;">Г.{{ order.city}} {{ order.address}}</p>
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:left; margin:0 0 0;">Номер телефона:{{ order.telephone}}</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                         </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding:0 25px 30px 25px;">
+                                    <div class="table-wrapper">
+                                        <table class=contenttable width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#fff;border-collapse:collapse; margin: auto;">
+                                            <thead>
+                                                <tr>
+                                                    <th align="center" style="background-color:#fbfbfb; color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border:none; border-collapse:collapse; font-size:13px; padding:10px; letter-spacing:0.5px; line-height:1.2; text-align:left;">Название</th>
+                                                    <th align="center" style="background-color:#fbfbfb; color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border:none; border-collapse:collapse; font-size:13px; padding:10px; letter-spacing:0.5px; line-height:1.2; text-align:center;">Цена</th>
+                                                    <th align="center" style="background-color:#fbfbfb; color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border:none; border-collapse:collapse; font-size:13px; padding:10px; letter-spacing:0.5px; line-height:1.2; text-align:center;">Количество</th>
+                                                    <th align="center" style="background-color:#fbfbfb; color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border:none; border-collapse:collapse; font-size:13px; padding:10px; letter-spacing:0.5px; line-height:1.2; text-align:center;">Промежуточная цена</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody >
+                                                {% for tovar in zakaz %}
+                                                <tr>
+
+                                                    <td style="border-bottom:1px solid #e8e8e8; border-collapse:collapse; padding:10px;">
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:13px; font-weight:500; letter-spacing:0.5px; line-height:1.5; text-align:left; margin:0 0 2px;">{{ tovar.product.name }}</p>
+                                                        <p style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:12px; font-style:italic; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:left; margin:0 0 0;">Размер: {{ tovar.size }}<br></p>
+                                                    </td>
+                                                    <td style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border-bottom:1px solid #e8e8e8; border-collapse:collapse; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; padding:10px; margin:0 0 0;">{{ tovar.product.price }} Руб.</td>
+                                                    <td style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border-bottom:1px solid #e8e8e8; border-collapse:collapse; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; padding:10px; margin:0 0 0;">{{ tovar.count}} шт.</td>
+                                                    <td style="color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border-bottom:1px solid #e8e8e8; border-collapse:collapse; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; padding:10px; margin:0 0 0;">{{ tovar.price_with_count}} Руб.</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4" style="background-color:#fbfbfb; color:#000; font-family:'Roboto', Arial, Helvetica, sans-serif; border:none; border-collapse:collapse; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:right; padding:0 10px 15px; margin:0 0 0;">Всего: {{ full_price }} Руб.</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center">
+                                        <table class=contenttable width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f8f8f8; padding:25px 25px; border-radius:0 0 10px 10px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" style="padding:0 0;">
+                                                        <p style="color:#000; font-family:'Roboto',Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; margin:0 0;">Нашли ошибку в заказе? Свяжитесь с нами Email</a>.</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

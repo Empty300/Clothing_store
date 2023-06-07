@@ -9,7 +9,7 @@
                 <!--Breadcrumbs-->
                 <div class="breadcrumbs-wrapper text-uppercase">
                     <div class="container">
-                        <div class="breadcrumbs"><a href="{% url 'store:index_page' %}" title="Back to the home page">Главная</a><span>|</span><span class="fw-bold">{{ product.name }}</span></div>
+                        <div class="breadcrumbs"><a href="{% url 'store:index_page' %}" >Главная</a><span>|</span><span class="fw-bold">{{ product.name }}</span></div>
                     </div>
                 </div>
                 <!--End Breadcrumbs-->
@@ -164,9 +164,9 @@
                                         {% endif %}
                                         <h3  rel="description">Описание</h3>
                             <div id="d" >
-                                <div >
+                                <div class="desc_black" >
                                     <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-4 mb-md-0">
+                                        <div class="col-12 col-sm-12 col-md-8 col-lg-12 mb-4 mb-md-0">
                                             <p>{{ product.description }}</p>
 
                                         </div>
@@ -375,6 +375,62 @@ document.querySelector('.product-form__cart-submit').addEventListener('click', f
                 </div>
                 <button title="Close (Esc)" type="button" class="mfp-close">×</button>
             </div>
+    <!--You May Also Like Products-->
+                <section class="section product-slider pb-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-header col-12">
+                                <h2 class="text-transform-none">Вам так же может понравиться</h2>
+                            </div>
+                        </div>
+                        <div class="productSlider grid-products">
+                            {% for also_product in also_like %}
+                            <div class="item">
+                                <!--Start Product Image-->
+                                <div class="product-image">
+                                    <!--Start Product Image-->
+                                    <a href="{% url 'store:product' also_product.slug %}" class="product-img">
+                                        <!-- image -->
+                                        <img class="primary blur-up lazyload" data-src="{{ also_product.image1.url }}" src="{{ also_product.image1.url }}" alt="" title="">
+                                        <!-- End image -->
+                                        <!-- Hover image -->
+                                        <img class="hover blur-up lazyload" data-src="{{ also_product.image2.url }}" src="{{ also_product.image2.url }}" alt="" title="">
+                                        <!-- End hover image -->
+                                        <!-- product label -->
+                                        <!-- End product label -->
+                                    </a>
+                                    <!--End Product Image-->
+
+                                    <!--Product Button-->
+                                    <!--End Product Button-->
+                                </div>
+                                <!--End Product Image-->
+                                <!--Start Product Details-->
+                                <div class="product-details text-center">
+                                    <!--Product Name-->
+                                    <div class="product-name text-uppercase">
+                                         {% if product.category.name == 'Black' %}
+                                            <a href="{% url 'store:product' also_product.slug %}" style="color: white">{{ also_product.name }}</a>
+                                             {% else %}
+                                             <a href="{% url 'store:product' also_product.slug %}">{{ also_product.name }}</a>
+                                        {% endif %}
+                                    </div>
+                                    <!--End Product Name-->
+                                    <!--Product Price-->
+                                    <div class="product-price">
+                                        <span class="price">{{ also_product.price }} руб.</span>
+                                    </div>
+                                    <!--End Product Price-->
+                                    <!--Product Review-->
+                                    <!-- End Variant -->
+                                </div>
+                                <!--End Product Details-->
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+                <!--End You May Also Like Products-->
                {% endblock %}
 
 

@@ -1,0 +1,70 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+            <!--Body Container-->
+            <div id="page-content">
+                <!--Collection Banner-->
+                <div class="breadcrumbs-wrapper text-uppercase">
+                    <div class="container">
+                        <div class="breadcrumbs"><a href="{% url 'store:index_page' %}">Главная</a><span>|</span><span class="fw-bold">О нас</span></div>
+                    </div>
+                </div>
+                <!--End Collection Banner-->
+
+                <!--Main Content-->
+                <!--Content Info-->
+                <div class="container section">
+                    <div class="row about-info1">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-9 mx-auto text-center">
+                            <h2 class="mb-3 fw-normal fs-26 text-capitalize">Какой-то заголовок</h2>
+                            <p>Господа, выбранный нами инновационный путь предполагает независимые способы реализации новых предложений. Следует отметить, что сложившаяся структура организации способствует повышению качества системы обучения кадров, соответствующей насущным потребностям. В частности, современная методология разработки позволяет оценить значение системы обучения кадров, соответствующей насущным потребностям.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End Content Info-->
+
+                <!--The Founder-->
+                <div class="container-fluid px-0 clr-f5 about-bnr-text">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 row_text">
+                            <div class="about-info2 row-text">
+                                <h3 class="h6"><b class="h1 fs-26 d-block mt-2 fw-bold">Основатель</b></h3>
+                                <p>Как уже неоднократно упомянуто, интерактивные прототипы, инициированные исключительно синтетически, описаны максимально подробно. Являясь всего лишь частью общей картины, акционеры крупнейших компаний, инициированные исключительно синтетически, своевременно верифицированы. </p>
+                                <p>Безусловно, убеждённость некоторых оппонентов обеспечивает актуальность анализа существующих паттернов поведения. Повседневная практика показывает, что курс на социально-ориентированный национальный проект требует от нас анализа первоочередных требований.</p>
+                                <p>Учитывая ключевые сценарии поведения, экономическая повестка сегодняшнего дня играет важную роль в формировании приоретизации разума над эмоциями!</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                            <img class="about-info-img blur-up lazyload" data-src="{% static 'images/guts.jpg' %}" src="{% static 'images/guts.jpg' %}" alt="about" />
+                        </div>
+                    </div>
+                </div>
+                <!--End The Founder-->
+
+                <!--Our Story-->
+                <div class="container section pb-0">
+                    <div class="section-header col-12">
+                        <h2 class="text-capitalize">Еще текст</h2>
+                    </div>
+                    <div class="row about-info3">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <p>Optimal comes with easy-to-use interface and outstanding support. You can implement your own design. You can easily change the store's appearance as per your requirements using our ready sections and options available.</p>
+                            <p>You can implement your own design, You can easily change the store's appearance as per your requirements using our ready sections and options available.</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                            <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary</p>
+                            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced</p>
+                        </div>
+                    </div>
+
+                    <!--End Main Content-->
+                </div>
+                <!--End Our Story-->
+                <!--End Main Content-->
+            </div>
+            <!--End Body Container-->
+
+            {% endblock %}

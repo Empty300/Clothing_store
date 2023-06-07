@@ -2,17 +2,26 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 
-from store.models import ProductCategory, Product, Basket
+from common.views import CommonMixin
+from store.models import ProductCategory, Product, Basket, Collections
+from store.services import add_to_basket, basket_delete
 
 
-class IndexView(ListView):
+class IndexView(CommonMixin, ListView):
     template_name = 'store/index_page.html'
     model = ProductCategory
+    title = 'Giant - Главная'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(IndexView, self).get_context_data()
+        context['collections'] = Collections.objects.all()
+        return context
 
 
-class CategoryView(ListView):
+class CategoryView(CommonMixin, ListView):
     template_name = 'store/category.html'
     model = ProductCategory
+    title = 'Giant - Категории'
 
 
 class CategoryNameView(ListView):
@@ -21,7 +30,9 @@ class CategoryNameView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(CategoryNameView, self).get_context_data()
-        context['category_name'] = ProductCategory.objects.get(id=self.kwargs['category_id'])
+        category_name = ProductCategory.objects.get(id=self.kwargs['category_id'])
+        context['category_name'] = category_name
+        context['title'] = f'Giant - {category_name}'
 
         return context
 
@@ -34,43 +45,44 @@ class ProductDetailView(DetailView):
     template_name = 'store/product.html'
     model = Product
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ProductDetailView, self).get_context_data()
+        context['title'] = f"Giant - {Product.objects.get(slug=self.kwargs['slug']).name}"
+        context['also_like'] = Product.objects.all().exclude(slug=self.kwargs['slug']).order_by('?')
+
+        return context
+
 
 @login_required
 def basket_add(request, product_id):
-    product = Product.objects.get(id=product_id)
-    baskets = Basket.objects.filter(user=request.user, product=product)
-    if 'Size' in request.POST and 'Quantity' in request.POST:
-        if baskets.exists() and baskets.first().size == request.POST['Size']:
-            basket = baskets.first()
-            basket.quantity += int(request.POST['Quantity'])
-            basket.save()
-        else:
-            Basket.objects.create(user=request.user, product=product,
-                                  quantity=request.POST['Quantity'], size=request.POST['Size'])
-    elif 'Quantity' in request.POST:
-        if baskets.exists():
-            basket = baskets.first()
-            basket.quantity += int(request.POST['Quantity'])
-            basket.save()
-        else:
-            Basket.objects.create(user=request.user, product=product,
-                                  quantity=request.POST['Quantity'])
-    else:
-        Basket.objects.create(user=request.user, product=product,
-                              quantity=1)
-
+    add_to_basket(request, product_id)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+class AboutUsView(CommonMixin, ListView):
+    template_name = 'store/about_us.html'
+    model = ProductCategory
+    title = 'Giant - О нас'
+
+
+class CollectionNameView(ListView):
+    template_name = 'store/collection_list.html'
+    model = Product
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CollectionNameView, self).get_context_data()
+        collection_name = Collections.objects.get(id=self.kwargs['collection_id'])
+        context['collection_name'] = collection_name
+        context['title'] = f'Giant - {collection_name}'
+
+        return context
+
+    def get_queryset(self):
+        queryset = Product.objects.filter(collection_id=self.kwargs['collection_id'])
+        return queryset
 
 
 @login_required
 def basket_remove(request, basket_id):
-    basket = Basket.objects.get(id=basket_id)
-    basket.delete()
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
-
-
-@login_required
-def basket_remove_all(request, basket_id):
-    test = Basket.objects.all().filter(user=request.user)
-    test.delete()
+    basket_delete(basket_id)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

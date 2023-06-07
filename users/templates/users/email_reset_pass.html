@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!--Required Meta Tags-->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <meta name="description" content="">
+        <!-- Title Of Site -->
+        <title>Сброс пароля</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+        <style>            
+            *, ::before, ::after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }		
+            a:hover { opacity:0.88; }        
+        </style>
+        <style type="text/css">
+    @media only screen and (max-device-width: 870px) {
+    table[class=contenttable] { width: 300px !important; }
+    img[class="headerimage"] { width: 225px !important;  }
+    td[class="contetnt"] { width: 20px !important;  }
+        table[class=contenttable] {
+            width: 300px !important;
+        }
+    }
+
+</style>
+    </head>
+
+    <body style="padding:0;margin:0;background-color:#f7f7f7;">
+        <table style="table-layout:fixed; border-spacing:0; border-collapse:collapse; background-color:#f7f7f7; width:100%; margin:0 auto; padding:0;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7;">
+            <tbody>
+                <tr>
+                    <td align="center" style="padding:25px 0;" class="contetnt">
+                        <table class=contenttable  style="table-layout:fixed; border-spacing:0; border-collapse:collapse; background-color:#fff; border-radius:10px; min-width: 320px; max-width:600px; margin:0 auto; box-shadow:0px 0px 14px -4px rgba(0,0,0,0.2);" width="650" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7;">
+                            <tbody>
+
+                                <tr>
+                                    <td align="center" class="contetnt">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#fff;padding:15px 25px 30px 25px;" class='contenttable'>
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" style="padding:0;">
+                                                        <h1 style="color:#000; font-family:'Roboto',Arial, Helvetica, sans-serif; font-size:28px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; margin:0 0 15px;"><strong>Забыли пароль?</strong></h1>
+                                                        <p style="color:#000; font-family:'Roboto',Arial, Helvetica, sans-serif; font-size:15px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; margin:0 0 0;">Привет, <strong>{{ user_name }},</strong></p>
+                                                        <p style="color:#000; font-family:'Roboto',Arial, Helvetica, sans-serif; font-size:15px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; margin:0 0 10px;">Поступил запрос на смену пароля!</p>
+                                                        <p style="color:#000; font-family:'Roboto',Arial, Helvetica, sans-serif; font-size:15px; font-weight:normal; letter-spacing:0.5px; line-height:1.5; text-align:center; margin:0 0 25px;">Если вы не делали этот запрос, просто проигнорируйте это письмо. В противном случае нажмите кнопку ниже, чтобы изменить пароль:</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" style="padding:0;">
+                                                        <a style="background:#000; color:#fff; border:1px solid #000; font-family:'Roboto',Arial, Helvetica, sans-serif; font-size:15px; font-weight:600;  line-height:1.5; text-align:center; margin:0; text-decoration:none; padding:10px 22px; display:inline-block; letter-spacing:0.5px; border-radius:4px;" href="{{verification_link}}">Изменить пароль</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

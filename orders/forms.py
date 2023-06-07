@@ -1,7 +1,8 @@
 from django import forms
 from django.core.validators import RegexValidator
+from django.forms import MultipleChoiceField
 
-
+from orders.cities import cities
 from orders.models import Order
 
 
@@ -22,3 +23,10 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ('fio', 'address', 'city', 'telephone', 'order_notes', 'basket_history')
+
+class CdekForm(forms.ModelForm):
+    city = MultipleChoiceField(choices=cities, initial='Москва')
+    class Meta:
+        model = Order
+        fields = ('fio', 'address', 'city', 'telephone', 'order_notes', 'basket_history')
+

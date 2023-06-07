@@ -1,15 +1,12 @@
 {% extends 'store/base.html' %}
 {% load static %}
 {% block content %}
-            {% if category_name.name == 'Black' %}
-                <link rel="stylesheet" href="{% static 'css/style_black.css' %}"/>
-            {% endif %}
-            <!--Body Container-->
+                        <!--Body Container-->
             <div id="page-content">
                 <!-- Collection Banner -->
                 <div class="breadcrumbs-wrapper text-uppercase">
                     <div class="container">
-                        <div class="breadcrumbs"><a href="{% url 'store:index_page' %}" >Главная</a><span>|</span><span class="fw-bold">{{ category_name }}</span></div>
+                        <div class="breadcrumbs"><a href="{% url 'store:index_page' %}" >Главная</a><span>|</span><span class="fw-bold">{{ collection_name }}</span></div>
                     </div>
                 </div>
                 <!-- End Collection Banner -->
