@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import DetailView, ListView
 
 from common.views import CommonMixin
-from store.models import ProductCategory, Product, Basket, Collections
+from store.models import Collections, Product, ProductCategory
 from store.services import add_to_basket, basket_delete
 
 

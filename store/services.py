@@ -1,9 +1,10 @@
-from store.models import Product, Basket
+from store.models import Basket, Product
 
 
 def basket_delete(basket_id):
     basket = Basket.objects.get(id=basket_id)
     basket.delete()
+
 
 def add_to_basket(request, product_id):
     """Добавление товара в корзину"""

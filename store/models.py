@@ -14,6 +14,7 @@ class ProductCategory(models.Model):
     class Meta:
         verbose_name_plural = "Категории товаров"
 
+
 class Collections(models.Model):
     name = models.CharField(max_length=128, unique=True, verbose_name='Название коллекции')
     description = models.TextField(null=True, blank=True, verbose_name='Описание (не обязательно)')
@@ -25,6 +26,7 @@ class Collections(models.Model):
     class Meta:
         verbose_name_plural = "Коллекции"
 
+
 class Product(models.Model):
     name = models.CharField(
         max_length=256,
@@ -33,7 +35,7 @@ class Product(models.Model):
     price = models.DecimalField(
         verbose_name='Цена',
         max_digits=8,
-        decimal_places=2,
+        decimal_places=0,
         default=0,
         null=True,
 
@@ -128,5 +130,3 @@ class Basket(models.Model):
 
     class Meta:
         verbose_name_plural = "Корзины"
-
-

@@ -24,9 +24,10 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ('fio', 'address', 'city', 'telephone', 'order_notes', 'basket_history')
 
+
 class CdekForm(forms.ModelForm):
     city = MultipleChoiceField(choices=cities, initial='Москва')
+
     class Meta:
         model = Order
         fields = ('fio', 'address', 'city', 'telephone', 'order_notes', 'basket_history')
-

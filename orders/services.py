@@ -1,12 +1,12 @@
 import os
 import uuid
+
 import requests
 from django.conf import settings
 from django.core.mail import send_mail
-from django.shortcuts import redirect
 from django.template import loader
 from dotenv import load_dotenv
-from yookassa import Payment, Configuration
+from yookassa import Configuration, Payment
 
 from orders.models import Order
 from store.models import Basket, Product
@@ -52,10 +52,12 @@ def payment_succeeded(answer):
     _payment_succeeded_email(order)
     requests.post(
         f'https://api.telegram.org/bot{os.getenv("BOT_TOKEN")}/sendMessage?chat_id={os.getenv("CHAT_ID1")}'
-        f'&text=Оплачен новый заказ! Его id:{order_id}\nПодробнее: {os.getenv("DOMAIN_NAME")}/admin/orders/order/{order_id}/change/')
+        f'&text=Оплачен новый заказ! Его id:{order_id}\nПодробнее: {os.getenv("DOMAIN_NAME")}/admin/orders/order/'
+        f'{order_id}/change/')
     # requests.post(
     #     f'https://api.telegram.org/bot{os.getenv("BOT_TOKEN")}/sendMessage?chat_id={os.getenv("CHAT_ID2")}'
-    #     f'&text=Оплачен новый заказ! Его id:{order_id}\nПодробнее: {os.getenv("DOMAIN_NAME")}/admin/orders/order/{order_id}/change/')
+    #     f'&text=Оплачен новый заказ! Его id:{order_id}\nПодробнее: {os.getenv("DOMAIN_NAME")}/admin/orders/order/
+    #     {order_id}/change/')
 
 
 def _payment_succeeded_email(order):
