@@ -128,6 +128,7 @@ def get_cdek_info(city_name):
     try:
         response = response['tariff_codes'][0]
         delivery_info = {
+            'name': city_name,
             'price': response['delivery_sum'],
             'period_min': int(response['period_min']),
             'period_max': int(response['period_max']),

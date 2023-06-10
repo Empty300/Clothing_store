@@ -13,7 +13,7 @@
  5. Setting Box dropdown
  6. Masonry Collection Banners
  7. Mobile Main Menu
- 8. Promotion / Notification Cookie Bar 
+ 8. Promotion / Notification Cookie Bar
  9. Slick Slider
  10. Sidebar Categories Level links
  11. Price Range Slider
@@ -42,6 +42,7 @@
  34. Background Parallax image
  *************************************************/
 
+
 (function ($) {
     // Start of use strict
     'use strict';
@@ -53,6 +54,7 @@
         $("#load").fadeOut();
         $('#pre-loader').delay(500).fadeOut(500);
     }
+
     pre_loader();
 
     function dismiss() {
@@ -60,7 +62,9 @@
             $(".product-notification").hide().fadeOut('slow');
         });
     }
+
     dismiss();
+
 
     /*-----------------------------------------
      2. Promotional Bar Header 
@@ -72,6 +76,7 @@
             return false;
         });
     }
+
     promotional_bar();
 
     /*-----------------------------------------
@@ -87,6 +92,7 @@
             autoplaySpeed: 5000
         });
     }
+
     promotional_bar_slider();
 
     /* 3.1 Top Bar Slider */
@@ -109,6 +115,7 @@
             ]
         });
     }
+
     topbar_slider();
 
     /* 3.2 Top Bar Slider 2 */
@@ -123,6 +130,7 @@
             fade: true
         });
     }
+
     topbar_slider_style1();
 
     /* 3.3 Store Bar Slider */
@@ -145,6 +153,7 @@
             ]
         });
     }
+
     store_bar_slider();
 
     /*-----------------------------------------
@@ -178,6 +187,7 @@
             t.parents().is("#settingsBox") || t.parents().is(".setting-link") || t.is(".setting-link") || $("#settingsBox").removeClass("active");
         });
     }
+
     setting_box();
 
     /* 5.1 User Links dropdown */
@@ -190,6 +200,7 @@
             t.parents().is("#userLinks") || t.parents().is(".user-link") || t.is(".user-link") || $("#userLinks").removeClass("active");
         });
     }
+
     user_links();
 
     /*-----------------------------------------
@@ -208,7 +219,7 @@
 
     $(".btn-shop").on("click", function () {
         $(".products .grid-lb, .grid-lookbook").removeClass("active"),
-                $(this).next().addClass("active"), $(this).parents(".grid-lookbook").addClass("active");
+            $(this).next().addClass("active"), $(this).parents(".grid-lookbook").addClass("active");
     });
     $(".btn-shop-close").on("click", function () {
         $(this).parent().removeClass("active");
@@ -234,14 +245,14 @@
 
     $(selectors.menuToggle).on("click", function () {
         body: 'body',
-                $(selectors.mobilenav).toggleClass("active");
+            $(selectors.mobilenav).toggleClass("active");
         $(selectors.body).toggleClass("menuOn");
         $(selectors.menuToggle).toggleClass('mobile-nav--open mobile-nav--close');
     });
 
     $(selectors.closemenu).on("click", function () {
         body: 'body',
-                $(selectors.mobilenav).toggleClass("active");
+            $(selectors.mobilenav).toggleClass("active");
         $(selectors.body).toggleClass("menuOn");
         $(selectors.menuToggle).toggleClass('mobile-nav--open mobile-nav--close');
     });
@@ -273,11 +284,13 @@
             $.cookie('promotion', 'true', {expires: 1});
         });
     }
+
     cookie_promo();
 
     /*-----------------------------------------
      9. Slick Slider
      -----------------------------------------*/
+
     /* 9.1 Homepage Slideshow */
     function home_slider() {
         $('.home-slideshow').slick({
@@ -292,6 +305,7 @@
             lazyLoad: 'ondemand'
         });
     }
+
     home_slider();
 
     // Full Size Banner on the Any Screen
@@ -311,6 +325,7 @@
             autoplaySpeed: 2500
         });
     }
+
     side_product_slider();
 
     /* 9.3 Category Page Slideshow */
@@ -322,6 +337,7 @@
             arrows: true
         });
     }
+
     category_slider();
 
 
@@ -352,6 +368,7 @@
 
         });
     }
+
     product_slider();
 
     /* 9.5 Products Slider Style2 3 Items */
@@ -380,6 +397,7 @@
             ]
         });
     }
+
     product_slider1();
 
     /* 9.6 Products Slider Style3 */
@@ -415,6 +433,7 @@
             ]
         });
     }
+
     product_slider2();
 
     /* 9.7 Products Slider Fullwidth */
@@ -443,6 +462,7 @@
             ]
         });
     }
+
     product_slider_full();
 
     /* 9.8 Product Page */
@@ -471,6 +491,7 @@
             ]
         });
     }
+
     product_slider_ppage();
 
 
@@ -509,6 +530,7 @@
             ]
         });
     }
+
     collection_slider();
 
     /* 9.10 Collection Slider 3 Items */
@@ -531,6 +553,7 @@
             ]
         });
     }
+
     collection_slider_3items();
 
     /* 9.11 Collection Slider 4 Items */
@@ -559,6 +582,7 @@
             ]
         });
     }
+
     collection_slider_4items();
 
     /* 9.12 Collection Slider 6 Items */
@@ -596,6 +620,7 @@
             ]
         });
     }
+
     collection_slider_6items();
 
     /* 9.13 Collection Slider 7 Items */
@@ -633,6 +658,7 @@
             ]
         });
     }
+
     collection_slider_7items();
 
     /* 9.14 Collection Slider2 4 Items */
@@ -668,6 +694,7 @@
             ]
         });
     }
+
     collection_slider1();
 
 
@@ -697,6 +724,7 @@
             ]
         });
     }
+
     blogpost_slider();
 
     /* 9.16 Blog Slider2 4 Items */
@@ -732,6 +760,7 @@
             ]
         });
     }
+
     blogpost_slider_style1();
 
     /* 9.17 Blog Slider3 2 Items */
@@ -753,6 +782,7 @@
             ]
         });
     }
+
     blogpost_slider_style2();
 
     /* 9.18 Logo Slider */
@@ -788,6 +818,7 @@
             ]
         });
     }
+
     logo_slider();
 
     /* 9.19 Testimonial Slider */
@@ -827,6 +858,7 @@
             ]
         });
     }
+
     testimonial_slider();
 
     /* 9.20 Testimonial Slider 2 */
@@ -840,6 +872,7 @@
             adaptiveHeight: true
         });
     }
+
     testimonial_slider_1item();
 
 
@@ -876,6 +909,7 @@
             ]
         });
     }
+
     instagram_slider();
 
     /* 9.22 Instagram Slider 2 */
@@ -913,6 +947,7 @@
             ]
         });
     }
+
     instagram_slider_style2();
 
     /*-----------------------------------
@@ -924,6 +959,7 @@
             $(this).next(".sublinks").slideToggle("slow");
         });
     }
+
     categories_level();
 
     $(".filter-widget .widget-title").on("click", function () {
@@ -945,8 +981,9 @@
             }
         });
         $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-                " - $" + $("#slider-range").slider("values", 1));
+            " - $" + $("#slider-range").slider("values", 1));
     }
+
     price_slider();
 
     /*-----------------------------------
@@ -961,6 +998,7 @@
             });
         });
     }
+
     color_swacthes();
 
     function img_swacthes() {
@@ -970,6 +1008,7 @@
             $(this).addClass('active');
         });
     }
+
     img_swacthes();
 
     function size_swacthes() {
@@ -979,6 +1018,7 @@
             $(this).addClass('active');
         });
     }
+
     size_swacthes();
 
     /*-----------------------------------
@@ -992,6 +1032,7 @@
             }
         });
     }
+
     footer_dropdown();
 
     // Resize Function 
@@ -1020,6 +1061,7 @@
             }
         });
     }
+
     blog_sidebar_dropdown();
     $(window).on("load resize", function (e) {
         if ($(window).width() > 991) {
@@ -1060,7 +1102,7 @@
      ----------------------------------*/
     $('[data-countdown]').each(function () {
         var $this = $(this),
-                finalDate = $(this).data('countdown');
+            finalDate = $(this).data('countdown');
         $this.countdown(finalDate, function (event) {
             $this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
         });
@@ -1075,6 +1117,7 @@
             return false;
         });
     }
+
     scroll_top();
 
     $(window).scroll(function () {
@@ -1137,11 +1180,13 @@
             cursor: "crosshair"
         });
     }
+
     product_zoom();
 
     /*----------------------------
      20. Product Detail Slider
      ------------------------------ */
+
     /* Product Detail Vertical Thumb Slider */
     function product_thumb() {
         $('.product-dec-slider-2').slick({
@@ -1154,6 +1199,7 @@
             slidesToScroll: 1
         });
     }
+
     product_thumb();
 
     /* Product Detail Page Horizontal Thumb Slider */
@@ -1165,6 +1211,7 @@
             slidesToScroll: 1
         });
     }
+
     product_thumb1();
 
     /* Product Detail Page Horizontal 2 Slide with Thumb Slider 2 */
@@ -1188,6 +1235,7 @@
             focusOnSelect: true
         });
     }
+
     product_single_style2();
 
     /* Product Detail Page Center Slider */
@@ -1217,6 +1265,7 @@
             ]
         });
     }
+
     product_center_mode();
 
 
@@ -1234,20 +1283,21 @@
             /* End Sticky Header */
 
             $(window).scrollTop() > 600 && $(".stickyCart").length ? (
-                    $("body.template-product").css("padding-bottom", "70px"),
+                $("body.template-product").css("padding-bottom", "70px"),
                     $(".stickyCart").slideDown()) : ($("body.template-product").css("padding-bottom", "0"),
-                    $(".stickyCart").slideUp());
+                $(".stickyCart").slideUp());
         };
         $(".stickyOptions .selectedOpt").on("click", function () {
             $(".stickyOptions ul").slideToggle("fast");
         }),
-                $(".stickyOptions .vrOpt").on("click", function (e) {
-            var t = $(this).attr("data-val"),
+            $(".stickyOptions .vrOpt").on("click", function (e) {
+                var t = $(this).attr("data-val"),
                     s = $(this).attr("data-no"),
                     a = $(this).text();
-            $(".selectedOpt").text(a), $(".stickyCart .selectbox").val(t).trigger("change"), $(".stickyOptions ul").slideUp("fast"), this.productvariants = JSON.parse(document.getElementById("ProductJson-" + i).innerHTML), $(".stickyCart .product-featured-img").attr("src", this.productvariants.variants[s].featured_image.src.replace(/(\.[^\.]*$|$)/, "_60x60$&"));
-        });
+                $(".selectedOpt").text(a), $(".stickyCart .selectbox").val(t).trigger("change"), $(".stickyOptions ul").slideUp("fast"), this.productvariants = JSON.parse(document.getElementById("ProductJson-" + i).innerHTML), $(".stickyCart .product-featured-img").attr("src", this.productvariants.variants[s].featured_image.src.replace(/(\.[^\.]*$|$)/, "_60x60$&"));
+            });
     }
+
     sticky_cart();
 
     /*--------------------------
@@ -1260,6 +1310,7 @@
             });
         }
     }
+
     video_popup();
 
     /* Size Popup */
@@ -1271,6 +1322,7 @@
             removalDelay: 400
         });
     }
+
     size_popup();
 
     /*ShippingInfo Popup */
@@ -1282,6 +1334,7 @@
             removalDelay: 400
         });
     }
+
     shippingInfo_popup();
 
     /* Inquiry Popup */
@@ -1293,6 +1346,7 @@
             removalDelay: 400
         });
     }
+
     inquiry_popup();
 
     /* Addtocart Popup */
@@ -1304,6 +1358,7 @@
             removalDelay: 400
         });
     }
+
     addtocart_popup();
 
     /* Portfolio Popup */
@@ -1315,6 +1370,7 @@
             removalDelay: 400
         });
     }
+
     portfolio_popup();
 
     /*----------------------------------
@@ -1323,8 +1379,8 @@
     function qnt_incre() {
         $(".qtyBtn").on("click", function () {
             var qtyField = $(this).parent(".qtyField"),
-                    oldValue = $(qtyField).find(".qty").val(),
-                    newVal = 1;
+                oldValue = $(qtyField).find(".qty").val(),
+                newVal = 1;
 
             if ($(this).is(".plus")) {
                 newVal = parseInt(oldValue) + 1;
@@ -1334,13 +1390,14 @@
             $(qtyField).find(".qty").val(newVal);
         });
     }
+
     qnt_incre();
 
     /*----------------------------------
      24. Visitor Fake Message
      ------------------------------------*/
     var userLimit = $(".userViewMsg").attr('data-user'),
-            userTime = $(".userViewMsg").attr('data-time');
+        userTime = $(".userViewMsg").attr('data-time');
     $(".uersView").text(Math.floor((Math.random() * userLimit)));
     setInterval(function () {
         $(".uersView").text(Math.floor((Math.random() * userLimit)));
@@ -1451,8 +1508,8 @@
     $(".bg-img.blur-up").parent().addClass('');
     jQuery('.bg-img').each(function () {
         var el = $(this),
-                src = el.attr('src'),
-                parent = el.parent();
+            src = el.attr('src'),
+            parent = el.parent();
         parent.css({
             'background-image': 'url(' + src + ')',
             'background-size': 'cover',
@@ -1472,14 +1529,15 @@
             item: 1,
             slidesToScroll: 1,
             responsive: [{
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 1
-                    }
-                }]
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
         });
         $(window).width() > 767 ? $(".product-single-style2 .product-details-img").slick("unslick") : $(".product-single-style2 .product-details-img").slick("refresh");
     }
+
     sticky_pro_slider();
 
     function sticky_pro_slider_style4() {
@@ -1489,14 +1547,15 @@
             item: 1,
             slidesToScroll: 1,
             responsive: [{
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 1
-                    }
-                }]
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
         });
         $(window).width() > 767 ? $(".product-single-style4 .product-details-img .row").slick("unslick") : $(".product-single-style4 .product-details-img .row").slick("refresh");
     }
+
     sticky_pro_slider_style4();
 
 
@@ -1513,6 +1572,7 @@
             }
         });
     }
+
     load_more();
 
     function load_more_five() {
@@ -1525,6 +1585,7 @@
             }
         });
     }
+
     load_more_five();
 
     function load_more_listview() {
@@ -1537,6 +1598,7 @@
             }
         });
     }
+
     load_more_listview();
 
     function load_more_post() {
@@ -1549,6 +1611,7 @@
             }
         });
     }
+
     load_more_post();
     /*-----------------------------------
      End Infinite Scroll js
@@ -1579,6 +1642,7 @@
             mainClass: 'mfp-zoom-in'
         });
     }
+
     quick_view_popup();
 
     /*------------------------------------
@@ -1595,6 +1659,7 @@
             });
         }
     }
+
     tooltip();
 
     /*------------------------------------
@@ -1614,6 +1679,7 @@
             $(this).addClass('change-view--active');
         });
     }
+
     prd_change_view();
 
     /*------------------------------------
@@ -1626,8 +1692,10 @@
             e.preventDefault();
         });
     }
+
     write_review();
-    
+
+
     /*------------------------------------
      34. Background Parallax image
      -------------------------------------*/
@@ -1647,8 +1715,30 @@
             });
         });
     }
+
     background_parallax_img();
 
 
 })(jQuery);
+
+const submit = function (e) {
+    e.preventDefault();
+    document.getElementById('deliv_info').classList.add('loader')
+      setTimeout(() => {
+      document.getElementById('deliv_info').classList.remove('loader')
+          document.getElementById('city_bot').style.backgroundColor = 'black';
+      }, 3000);
+    document.getElementById('city_bot').style.backgroundColor = '';
+    var formData = document.getElementById('city_choice');
+    console.log(document.getElementById('city_choice').value)
+    $.get('/orders/create/', {city: formData.value}, function (data) {
+        var $data = $(data);
+        var desiredElement = $data.find('#deliv_info');
+        var oldDelivInfo = document.getElementById('deliv_info');
+        $(oldDelivInfo).replaceWith(desiredElement);
+
+    })
+};
+const but = document.getElementById('city_bot')
+but.addEventListener('click', submit);
 
