@@ -38,19 +38,19 @@
                                     {{ field.errors }}
                                 {% endfor %}
                                 <div class="form-group col-md-12 col-lg-12">
-                                    <label >Ваше ФИО <span class="required-f">*</span></label>
+                                    <label>Ваше ФИО <span class="required-f">*</span></label>
                                     {{ form.fio }}
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 col-lg-6">
-                                    <label >Номер телефона <span
+                                    <label>Номер телефона <span
                                             class="required-f">*</span></label>
                                     {{ form.telephone }}
                                 </div>
                                 <div class="form-group col-md-6 col-lg-6">
-                                    <label >Город <span class="required-f">*</span></label>
+                                    <label>Город <span class="required-f">*</span></label>
                                     {{ form.city }}
                                 </div>
 
@@ -58,7 +58,7 @@
 
                             <div class="row">
                                 <div class="form-group col-md-12 col-lg-12">
-                                    <label >Адрес <span class="required-f">*</span></label>
+                                    <label>Адрес <span class="required-f">*</span></label>
                                     {{ form.address }}
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
 
                             <div class="row">
                                 <div class="form-group col-md-12 col-lg-12 col-xl-12 mb-0">
-                                    <label >Комментарии к заказу <span
+                                    <label>Комментарии к заказу <span
                                             class="required-f"></span></label>
                                     {{ form.order_notes }}
                                 </div>
@@ -134,10 +134,12 @@
                                             </tr>
                                             <tr>
 
-                                                <th >
-                                                    <p style="text-transform: none">Выберете город куда нужно доставить товар:</p>
-                                                    <form method=""  action="javascript:void(0)">
-                                                        <select name="city" style="margin-bottom: 10px" id="city_choice">
+                                                <th>
+                                                    <p style="text-transform: none">Выберете город куда нужно доставить
+                                                        товар:</p>
+                                                    <form method="" action="javascript:void(0)">
+                                                        <select name="city" style="margin-bottom: 10px"
+                                                                id="city_choice">
                                                             {% for city in cities %}
                                                                 {% if city ==  main_city %}
                                                                     <option value="{{ city }}"
@@ -149,20 +151,22 @@
                                                         </select>
                                                         <p class="" style="margin-top: 10px" id="deliv_info">
                                                             {% if delivery_info.price %}
-                                                                Ориентировочная цена для {{ delivery_info.name }}: {{ delivery_info.price }} рублей. Срок
+                                                                Ориентировочная цена для {{ delivery_info.name }}:
+                                                                {{ delivery_info.price }} рублей. Срок
                                                                 доставки:
                                                                 от {{ delivery_info.period_min }} до
                                                                 {{ delivery_info.period_max }}
                                                                 {% if delivery_info.period_max >= 5 %} Дня{% else %}
                                                                     Дней{% endif %}
                                                             {% else %}
-                                                                К сожалению мы не можем рассчитать доставку в этот населенный пункт.
+                                                                К сожалению мы не можем рассчитать доставку в этот
+                                                                населенный пункт.
                                                             {% endif %}
                                                         </p>
                                                         <div class="order-button-payment mt-3 clearfix">
                                                             <button type="submit"
-                                                                   class="fs-6 btn btn-lg rounded w-100 fw-600 text-white"
-                                                                   value="Рассчитать"
+                                                                    class="fs-6 btn btn-lg rounded w-100 fw-600 text-white"
+                                                                    value="Рассчитать"
                                                                     style="margin-bottom: 10px"
                                                                     id="city_bot">
                                                                 Рассчитать
@@ -187,4 +191,26 @@
             </div>
         </div>
     </div>
+    <script>
+        const submit = function (e) {
+            e.preventDefault();
+            document.getElementById('deliv_info').classList.add('loader')
+            setTimeout(() => {
+                document.getElementById('deliv_info').classList.remove('loader')
+                document.getElementById('city_bot').style.backgroundColor = 'black';
+            }, 3000);
+            document.getElementById('city_bot').style.backgroundColor = '';
+            var formData = document.getElementById('city_choice');
+            console.log(document.getElementById('city_choice').value)
+            $.get('/orders/create/', {city: formData.value}, function (data) {
+                var $data = $(data);
+                var desiredElement = $data.find('#deliv_info');
+                var oldDelivInfo = document.getElementById('deliv_info');
+                $(oldDelivInfo).replaceWith(desiredElement);
+
+            })
+        };
+        const but = document.getElementById('city_bot')
+        but.addEventListener('click', submit);
+    </script>
 {% endblock %}

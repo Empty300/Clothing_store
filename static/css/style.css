@@ -146,7 +146,7 @@ input, select, .form-control { height:42px; padding:0 15px; }
 input[type="checkbox"], input[type="radio"] { width:auto; height:auto; }
 input[type="checkbox"]:focus, input[type="radio"]:focus { outline:0; box-shadow:none; }
 textarea, textarea.form-control { overflow:auto; resize:vertical; height:auto; padding:6px 10px; }
-select { -webkit-appearance:none; -moz-appearance:none; appearance:none; background-position:right center; background-image:url(../images/arrow-select.png) !important; background-repeat:no-repeat !important; background-position:right 10px center !important; line-height:1.2; text-indent:0.01px; text-overflow: ''; cursor:pointer; padding:8px 20px 8px 10px; }
+select { -webkit-appearance:none; -moz-appearance:none; appearance:none; background-position:right center;line-height:1.2; text-indent:0.01px; text-overflow: ''; cursor:pointer; padding:8px 20px 8px 10px; }
 
 .text-left { text-align:left !important; }
 .text-right { text-align:right !important; }
@@ -689,7 +689,7 @@ body:not(.searchact) .header-main:not(.sticky-header) { background:none; box-sha
 .header-7 .search-inline .search-category select,
 .header-7 .search-inline .input-box .input-text,
 .header-7 .search-inline .input-box .action { background: transparent; color: #fff; border-color: rgba(255,255,255,.2); height: 38px; }
-.header-7 .search-inline .search-category select { background-image:url(../images/arrow-select-white.png) !important; min-width:140px; border-radius:3px 0 0 3px; }
+
 
 .search-inline .search-category select { min-width:140px; border-radius:3px 0 0 3px; }
 .search-inline .search-category select option,

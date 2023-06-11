@@ -1721,24 +1721,8 @@
 
 })(jQuery);
 
-const submit = function (e) {
-    e.preventDefault();
-    document.getElementById('deliv_info').classList.add('loader')
-      setTimeout(() => {
-      document.getElementById('deliv_info').classList.remove('loader')
-          document.getElementById('city_bot').style.backgroundColor = 'black';
-      }, 3000);
-    document.getElementById('city_bot').style.backgroundColor = '';
-    var formData = document.getElementById('city_choice');
-    console.log(document.getElementById('city_choice').value)
-    $.get('/orders/create/', {city: formData.value}, function (data) {
-        var $data = $(data);
-        var desiredElement = $data.find('#deliv_info');
-        var oldDelivInfo = document.getElementById('deliv_info');
-        $(oldDelivInfo).replaceWith(desiredElement);
 
-    })
-};
-const but = document.getElementById('city_bot')
-but.addEventListener('click', submit);
+
+
+
 
