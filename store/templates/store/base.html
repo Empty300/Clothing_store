@@ -1,0 +1,289 @@
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <!--Required Meta Tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="description">
+    <!-- Title Of Site -->
+    <title>{{ title }}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}"/>
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}"/>
+</head>
+
+<body class="template-index index-demo24">
+<!-- Page Loader -->
+<div id="pre-loader"><img src="{% static 'images/loader.gif' %}" alt="Loading..."/></div>
+<!-- End Page Loader -->
+
+<!--Page Wrapper-->
+<div class="page-wrapper">
+
+
+    <!--Header-->
+    <header id="header" class="header header-main mih-70 d-flex align-items-center header-24">
+        <div class="container">
+            <div class="row">
+                <!--Main Navigation Desktop-->
+                <div class="col-1 col-sm-1 col-md-1 col-lg-5 align-self-center d-menu-col">
+                    <nav class="grid__item" id="AccessibleNav">
+                        <ul id="siteNav" class="site-nav left hidearrow">
+                            <li class="lvl1 parent megamenu"><a href="{% url 'store:index_page'  %}">Главная <i class="an an-angle-down-l"></i></a>
+                            </li>
+                            <li class="lvl1 parent dropdown"><a href="{% url 'store:category_page'  %}">Категории <i
+                                    class="an an-angle-down-l"></i></a>
+                            </li>
+                            <li class="lvl1 parent dropdown"><a href="{% url 'store:about_us'  %}">О нас <i
+                                    class="an an-angle-down-l"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--End Main Navigation Desktop-->
+                <!--Logo / Menu Toggle-->
+                <div class="col-6 col-sm-6 col-md-6 col-lg-2 align-self-center justify-content-start d-flex">
+                    <!--Mobile Toggle-->
+                    <button type="button"
+                            class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open me-3 d-lg-none"><i
+                            class="icon an an-times-l"></i><i class="icon an an-bars-l"></i></button>
+                    <!--End Mobile Toggle-->
+                    <!--Logo-->
+                    <div class="logo mx-lg-auto"><a href=""><img class="logo-img" src="{% static 'images/logo11.png' %}"
+                                                                 alt="Giant"
+                                                                 title="Giant"/><span
+                            class="logo-txt d-none">Giant</span></a></div>
+                    <!--End Logo-->
+                </div>
+                <!--End Logo / Menu Toggle-->
+                <!--Right Action-->
+                <div class="col-6 col-sm-6 col-md-6 col-lg-5 align-self-center icons-col text-right d-flex justify-content-end">
+                    <!--Search-->
+                    <!--End Search-->
+                    <!--Setting Dropdown-->
+                    {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+
+                        <a href="{% url 'admin:index' %}">Админ-панель</a>
+                        {% endif %}
+                    <div class="user-link iconset">
+
+                        <i class="icon an an-user-expand d-block d-lg-none"></i><span
+
+                            class="text d-none d-lg-flex">{{ user.username }}</span></div>
+                    <div id="userLinks">
+                        <ul class="user-links">
+                            <li><a href="{% url 'users:profile' user.id %}">Мой профиль</a></li>
+                            <li><a href="{%  url 'users:logout' %}">Выйти</a></li>
+                        </ul>
+                    </div>
+                    <!--End Setting Dropdown-->
+                    <!--Minicart Drawer-->
+                    <div class="header-cart iconset">
+                        <a href="#" class="site-header__cart btn-minicart d-flex-center" data-bs-toggle="modal"
+                           data-bs-target="#minicart-drawer">
+                            <i class="icon an an-sq-bag d-block d-lg-none"></i><span class="text d-none d-lg-flex">Корзина</span><span
+                                class="site-cart-count counter bg-black text-white d-flex-center justify-content-center rounded-circle ms-1">{{ baskets.total_quantity }}</span>
+                        </a>
+                    </div>
+                    {% else %}
+                        <div class="user-link iconset"><i class="icon an an-user-expand d-block d-lg-none"></i><span
+
+                            class="text d-none d-lg-flex">Авторизация</span></div>
+                    <div id="userLinks">
+                        <ul class="user-links">
+                            <li><a href="{%  url 'users:login' %}">Вход</a></li>
+                            <li><a href="{%  url 'users:registration' %}">Регистрация</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                </div>
+                <!--End Right Action-->
+            </div>
+        </div>
+    </header>
+    <!--End Header-->
+    <!--Mobile Menu-->
+    <div class="mobile-nav-wrapper" role="navigation">
+        <div class="closemobileMenu"><i class="icon an an-times-l pull-right"></i> Закрыть меню</div>
+        <ul id="MobileNav" class="mobile-nav">
+            <li class="lvl1 parent megamenu"><a href="{% url 'store:index_page'  %}">Главная</a></li>
+
+            <li class="lvl1 parent megamenu"><a href="{% url 'store:category_page'  %}">Категории</a></li>
+            <li class="lvl1 parent megamenu"><a href="{% url 'store:about_us'  %}">О нас</a></li>
+
+
+
+            <li class="acLink"></li>
+            <li class="lvl1 bottom-link"><a href="{% url 'users:login'  %}">Войти</a></li>
+            <li class="lvl1 bottom-link"><a href="{% url 'users:registration'  %}">Зарегистрироваться</a></li>
+            </li>
+        </ul>
+    </div>
+    <!--End Mobile Menu-->
+
+
+
+
+
+    {% block content %}    {% endblock %}
+
+
+
+
+
+
+
+    <div class="footer ind_footer footer-24">
+
+        <div class="footer-top ind_footer border-0 clearfix">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 footer-about pe-lg-5 mb-4 mb-lg-0">
+
+                        <img class="footer_logo" src="{% static 'images/logo_fot.png' %}">
+                        <ul class="list-inline social-icons">
+                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Telegram"><i class="an an-telegram-plane"
+                                                                                 aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Instagram"><i class="an an-instagram"
+                                                                                 aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Whatsapp"><i class="an an-whatsapp"
+
+                                                                                aria-hidden="true"></i></a></li>
+                        </ul>
+                        <div class="copytext">&copy; 2023. Made by <a href="https://t.me/empty32">Empty</a></div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-2 footer-links">
+                        <h4 class="h4 body-font">Магазин</h4>
+                        <ul class="p-0">
+                            <li><a href="{% url 'store:index_page' %}">Главная</a></li>
+                            <li><a href="{% url 'store:category_page' %}">Категории</a></li>
+                            <li><a href="{% url 'store:category_page' %}">Коллекции</a></li>
+                            <li><a href="{% url 'store:about_us' %}">О нас</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-3 footer-links ps-lg-5">
+                        <h4 class="h4 body-font">Аккаунт</h4>
+                        <ul>
+                            <li><a href="{% url 'users:login' %}">Войти</a></li>
+                            <li><a href="{% url 'users:registration' %}">Регистрация</a></li>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-3 footer-contact">
+                        <h4 class="h4 body-font">Контакты</h4>
+                        <p class="address d-flex"><i class="an an-map-marker-al pt-1"></i> Г. Иркутск,<br>88003553535 <br>giant-store@yandex.ru</p>
+
+                        </p>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End Footer-->
+
+    <!--Scoll Top-->
+    <span id="site-scroll" class="textbase" title="SCROLL UP">SCROLL UP <i class="an an-long-arrow-alt-right"
+                                                                           aria-hidden="true"></i></span>
+    <!--End Scoll Top-->
+
+    <!--MiniCart Drawer-->
+    <div class="minicart-right-drawer modal right fade" id="minicart-drawer">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="cart-drawer" class="block block-cart">
+                    <div class="minicart-header">
+                        <a href="javascript:void(0);" class="close-cart" data-bs-dismiss="modal" aria-label="Close"><i
+                                class="an an-times-r" aria-hidden="true" data-bs-toggle="tooltip"
+                                data-bs-placement="left" title="Close"></i></a>
+                        <h4 class="fs-6">Ваша корзина</h4>
+                    </div>
+
+                    <div class="minicart-content">
+                        <ul class="clearfix">
+                            {% for basket in baskets %}
+                            <li class="item d-flex justify-content-center align-items-center">
+                                <a class="product-image"
+                                   href="{% url 'store:product' basket.product.slug %}">
+                                    <img class="blur-up lazyload"
+                                         src="{{ basket.product.image1.url }}"
+                                         data-src="{{ basket.product.image1.url }}" alt="image" title="">
+                                </a>
+                                <div class="product-details">
+                                    <a class="product-title"
+                                       href="{% url 'store:product' basket.product.slug %}">{{ basket.product.name }}</a>
+                                    <div class="variant-cart">Размер: {{ basket.size }} </div>
+                                    <div class="variant-cart">Количество: {{ basket.quantity }}шт </div>
+                                    <div class="priceRow">
+                                        <div class="product-price">
+                                            <span class="money">{{ basket.sum }} руб.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="qtyDetail text-center">
+                                    <div class="wrapQtyBtn">
+
+                                    </div>
+                                    <a href="{% url 'store:basket_remove' basket.id %}" class="remove"><i class="an an-times-r" data-bs-toggle="tooltip"
+                                                                  data-bs-placement="top" title="Удалить"></i></a>
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <div class="minicart-bottom">
+                        <div class="subtotal">
+                            <span>Всего:</span>
+                            <span class="product-price">{{ baskets.total_sum }} руб.</span>
+                        </div>
+                        <a href="{% url 'orders:order_create' %}"
+                           class="w-100 p-2 my-2 btn btn-outline-primary rounded-0 proceed-to-checkout">Купить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End MiniCart Drawer-->
+    <div class="modalOverly"></div>
+
+
+
+
+
+
+
+
+    <!-- Including Jquery -->
+
+    <script src="{% static 'js/vendor/jquery-min.js' %}"></script>
+    <script src="{% static 'js/vendor/js.cookie.js' %}"></script>
+    <!--Including Javascript-->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</div>
+<!--End Page Wrapper-->
+</body>
+
+<!-- Mirrored from template.annimexweb.com/optimal/index-demo24.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Jun 2022 19:55:22 GMT -->
+</html>
